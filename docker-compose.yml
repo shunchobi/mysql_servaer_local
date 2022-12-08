@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  db:
+    #container_name: mysql
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 3306:3306
+    env_file:
+      - ./.env_mysql
+    volumes:
+      - type: volume
+        source: mysql-data
+        target: /var/lib/mysql
+
+  seq:
+    image: datalust/seq:latest
+    ports:
+      - "8001:80"
+      - "5341:5341"
+    environment:
+      - ACCEPT_EULA=Y
+    volumes:
+      - ./docker/seq/data:/data
+
+volumes:
+  mysql-data:
+    name: mysql-volume
