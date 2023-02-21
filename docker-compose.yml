@@ -16,6 +16,21 @@ services:
         source: mysql-data
         target: /var/lib/mysql
 
+  mysql-workbench:
+    image: lscr.io/linuxserver/mysql-workbench:latest
+    container_name: mysql-workbench
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Tokyo
+    volumes:
+      - /home/kondo/Dockers/mysql_servaer_local/docker/workbench:/config
+    ports:
+      - 3300:3300
+    cap_add:
+      - IPC_LOCK
+    restart: unless-stopped
+
   seq:
     image: datalust/seq:latest
     ports:

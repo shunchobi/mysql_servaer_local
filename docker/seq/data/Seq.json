@@ -22,11 +22,6 @@
     "minRequestBodyDataRateBytesPerSecond": 240.0,
     "minRequestBodyDataRateGracePeriodMilliseconds": 5000
   },
-  "cache": {
-    "largeObjectHeapCompaction": "Default",
-    "systemRamTarget": null,
-    "activeFilePageDiscount": null
-  },
   "certificates": {
     "certificatesPath": null,
     "defaultPassword": null
@@ -60,6 +55,7 @@
       "schema": null
     }
   },
+  "process": {},
   "secretKey": {
     "provider": null,
     "providerArgs": null
@@ -70,9 +66,8 @@
   "storage": {
     "secretKey": "4rrDOcPkjNbegEdBZ3lFRvM4hp5FfDmybdXNDyfVCcQ=",
     "flare": {
-      "diskReaderLimit": 5,
-      "indexerPriority": 0.0,
-      "queryParallelism": 4
+      "concurrentReaderLimit": null,
+      "indexerPriority": 0.0
     },
     "disableFreeDiskSpaceChecking": false,
     "maximumFutureTimestampDriftSeconds": 3420
